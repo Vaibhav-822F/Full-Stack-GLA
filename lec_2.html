@@ -4,14 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script>
+        function handleSubmit(event){
+            event.preventDefault();
+
+            const formData = new FormData(event.target);
+            const data = Object.fromEntries(formData);
+
+            console.log(data);
+
+            //Relocation to another page....
+            // window.location.href = 'welcome.html';
+
+            //in another tab...
+            window.open('welcome.html', '_blank');
+
+        }
+    </script>
 </head>
 <body>
-    <form action="">
+    
+        <form method="post" onsubmit="handleSubmit(event)">
         <label for="username">Username :</label>
         <input type="text" id="username" name="username" required>
         <br>
         <label for="password">Password :</label>
         <input type="password" id="password" name="password" required>
+        <input type="hidden" id="hiddenField" name="hiddenField" value="Another LOGIN">
         <br>
         <button type="submit"> login </button>
     </form>
@@ -44,7 +63,7 @@
 
   <input type="radio" id="MALE" name="gender" value="MALE">
   <label for="MALE">MALE</label><br>
-  <input type="radio" id="FEMALE" name="GENDER" value="FEMALE">
+  <input type="radio" id="FEMALE" name="gender" value="FEMALE">
   <label for="FEMALE">FEMALE</label><br>
   
 
